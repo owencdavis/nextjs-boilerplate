@@ -1,14 +1,13 @@
-// app/page.tsx
 'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
 
-// Updated tab names
-const TABS = ['about', 'services', 'gallery', 'contact'] as const;
+// Tab options
+const TABS = ['home', 'about', 'gallery'] as const;
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<typeof TABS[number]>('about');
+  const [activeTab, setActiveTab] = useState<typeof TABS[number]>('home');
 
   const renderContent = () => {
     switch (activeTab) {
@@ -54,25 +53,28 @@ export default function Home() {
             </p>
           </>
         );
-      case 'services':
+      case 'home':
         return (
           <>
-            <h2 className="text-center text-xl sm:text-2xl mb-4">Services</h2>
+            <h2 className="text-center text-xl sm:text-2xl mb-4">Home</h2>
             <p className="text-sm sm:text-base leading-relaxed">
               I offer a range of personalized styling services including wardrobe curation, closet
               edits, event styling, and on-set support for editorial or commercial projects. Whether
               you need a seasonal refresh or full wardrobe transformation, I ensure every detail feels
               tailored to your unique style and lifestyle.
             </p>
-          </>
-        );
-      case 'contact':
-        return (
-          <>
-            <h2 className="text-center text-xl sm:text-2xl mb-4">Contact</h2>
-            <p className="text-sm sm:text-base">
-              To get in touch with Wendy, please email: <strong>wendy@example.com</strong>
-            </p>
+
+            {/* Logo at the bottom of Home content */}
+            <div className="mt-8 flex justify-center">
+              <Image
+                src="/wendy_logo1.png"
+                alt="Wendy Davis Logo"
+                width={300}
+                height={300}
+                className="opacity-90"
+                priority
+              />
+            </div>
           </>
         );
     }
