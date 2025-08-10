@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               className="h-12 w-auto object-contain"
               priority
             />
-            <h1 className="font-allura text-4xl sm:text-5xl leading-tight">Wendy Davis Style</h1>
+            <h2 className="font-allura text-4xl sm:text-5xl leading-tight">Wendy Davis Style</h2>
           </div>
         </header>
 
