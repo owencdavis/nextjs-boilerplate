@@ -39,7 +39,7 @@ button, .liquid-button {
 
 /* --- Theme variables --- */
 :root {
-  --background: #f0faf7;
+  --background: #d0fff1;
   --foreground: #3b3a3a;
   --glass-shimmer-duration: 14s;
   --glass-shimmer-ease: ease-in-out;
