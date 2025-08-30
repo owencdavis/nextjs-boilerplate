@@ -39,7 +39,7 @@ button, .liquid-button {
 
 /* --- Theme variables --- */
 :root {
-  --background: #d0fff1;
+  --background: #effffa;
   --foreground: #3b3a3a;
   --glass-shimmer-duration: 14s;
   --glass-shimmer-ease: ease-in-out;
@@ -230,6 +230,10 @@ body {
   border-color: rgba(0,77,77,1);
   color: #fff;
   transform: translateY(-2px);
+}
+
+.chat-main {
+  border-bottom: 10px;
 }
 
 /* Footer Text */
