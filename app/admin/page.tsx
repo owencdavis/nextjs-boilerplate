@@ -174,46 +174,32 @@ export default function AdminPage() {
     <AuthGate>
       <main className="min-h-dvh bg-[#f0faf7]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 py-6 sm:py-8">
-          <header className="glass rounded-2xl border border-emerald-200 shadow-sm bg-white/70 backdrop-blur-sm p-4 sm:p-5 mb-6 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Image src="/wendy_logo.png" alt="Wendy Davis Logo" width={40} height={40} className="h-9 w-auto" />
-              <div>
-                <h1 className="text-2xl font-semibold tracking-tight text-slate-800">SmartStyle Admin</h1>
-                <p className="text-slate-500 text-sm">Internal console — employees only</p>
+          <header className="glass rounded-2xl border border-emerald-200 shadow-sm bg-white/70 backdrop-blur-sm p-4 sm:p-5 mb-6">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <Image src="/wendy_logo.png" alt="Wendy Davis Logo" width={40} height={40} className="h-9 w-auto" />
+                <div>
+                  <h1 className="text-2xl font-semibold tracking-tight text-slate-800">SmartStyle Admin</h1>
+                  <p className="text-slate-500 text-sm">Internal console — employees only</p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <nav className="hidden sm:flex items-center gap-2">
-                {TABS.map(({ key, label }) => (
-                  <button
-                    key={key}
-                    onClick={() => setActive(key)}
-                    className={`px-3.5 py-2 rounded-xl text-sm font-medium transition border ${
-                      active === key ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
-                    }`}
-                  >
-                    {label}
-                  </button>
-                ))}
-              </nav>
               <Button variant="ghost" onClick={signOut}>Sign out</Button>
             </div>
+            <nav className="flex items-center gap-2 flex-wrap">
+              {TABS.map(({ key, label }) => (
+                <button
+                  key={key}
+                  onClick={() => setActive(key)}
+                  className={`px-3.5 py-2 rounded-xl text-sm font-medium transition border ${
+                    active === key ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </nav>
           </header>
 
-          {/* Mobile nav */}
-          <nav className="sm:hidden flex items-center gap-2 mb-4">
-            {TABS.map(({ key, label }) => (
-              <button
-                key={key}
-                onClick={() => setActive(key)}
-                className={`px-3.5 py-2 rounded-xl text-sm font-medium transition border ${
-                  active === key ? 'bg-emerald-600 text-white border-emerald-600' : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </nav>
 
           <div className="space-y-6">
             {TABS.map(({ key, cfg }) => active === key ? <CrudPanel key={key} {...cfg} /> : null)}
