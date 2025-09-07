@@ -465,17 +465,6 @@ create policy vendors_delete_authenticated
   on public.vendors for delete
   using ( auth.role() = 'authenticated' );
 
-
--- Wardrobe → Personas & Products
-alter table public.wardrobe_items
-  add constraint wardrobe_items_product_fk
-  foreign key (product_id) references public.products(id) on delete cascade;
-
--- Measurements → Personas
-alter table public.persona_measurements
-  add constraint persona_measurements_persona_fk
-  foreign key (persona_id) references public.personas(id) on delete cascade;
-
 create policy products_insert_all on public.products for insert to authenticated with check (true);
 create policy products_update_all on public.products for update to authenticated using (true) with check (true);
 create policy products_delete_all on public.products for delete to authenticated using (true);
